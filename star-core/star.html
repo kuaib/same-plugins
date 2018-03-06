@@ -1,0 +1,65 @@
+<!DOCTYPE>
+<head>
+    <title>星星评分</title>
+    <script type="text/javascript" src="static/jquery.min.js"></script>
+    <style>
+    body,li,p,ul { 
+        margin: 0;
+        padding: 0;
+        font: 12px/1 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+    }
+    ul, li, ol { list-style: none; }
+    .star-grey{
+        background:url(images/stark.png) repeat-x;
+        /*5颗星的宽度*/
+        width:185px; 
+        /*1颗星的高度*/
+        height: 36px;
+        float:left; 
+    }
+    .star-grey p{ 
+        background:url(images/star.png) repeat-x;
+        /*1颗星的高度*/
+        height: 36px;
+    }
+    .show_number li span{ 
+        display:inline-block; 
+        line-height:36px;
+    }
+</style>
+</head>
+<body>
+    <div class="content">
+        <ul class="show_number clearfix">
+            <li>
+                <div class="star-grey">
+                    <p tip="2.8"></p>
+                </div>
+                <span></span>
+            </li>
+            <li>
+                <div class="star-grey">
+                    <p tip="3.3"></p>
+                </div>
+                <span></span>
+            </li>
+            <li>
+                <div class="star-grey">
+                    <p tip="5"></p>
+                </div>
+                <span></span>
+            </li>
+        </ul>
+    </div>
+<script>
+    //显示分数
+    $(".show_number li p").each(function(index, element) {
+        var core = $(this).attr("tip"); // 每一项的分数
+        var starWidth = core * 37;      // 每一项的分数星星的宽度(37:一个星星的宽度)
+        $(this).css("width",starWidth);
+        $(this).parent(".star-grey").siblings("span").text(core+"分");
+    });
+</script>
+</div>
+</body>
+</html>
